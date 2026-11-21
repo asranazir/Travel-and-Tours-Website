@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wander Pakistan</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2>Wander Pakistan</h2>
+
+        <button id="menuToggle">☰</button>
+
+        <ul id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#tips">Travel Tips</a></li>
+            <li><a href="#enquiry">Enquiry</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#stay">Accommodation</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>Explore the Beauty of Pakistan</h1>
+    <p>Discover beautiful places and plan your next journey.</p>
+
+    <button onclick="scrollToSection('destinations')">
+        Explore Destinations
+    </button>
+</section>
+
+<section class="section" id="destinations">
+
+    <h2>Popular Destinations</h2>
+
+    <label>Filter Destinations:</label>
+
+    <select id="categoryFilter" onchange="filterDestinations()">
+        <option value="all">All</option>
+        <option value="mountains">Mountains</option>
+        <option value="history">History</option>
+        <option value="city">Cities</option>
+    </select>
+
+    <div class="destination-grid">
+
+        <div class="destination-card" data-category="mountains">
+            <img src="Hunza valley.jpg" alt="Hunza Valley">
+            <h3>Hunza Valley</h3>
+            <p>Beautiful mountains and peaceful villages.</p>
+            <button onclick="showDestinationDetails('hunza')">View Details</button>
+        </div>
+
+        <div class="destination-card" data-category="mountains">
+            <img src="Skardu.jpg" alt="Skardu">
+            <h3>Skardu</h3>
+            <p>Famous for lakes and beautiful mountains.</p>
+            <button onclick="showDestinationDetails('skardu')">View Details</button>
+        </div>
+
+        <div class="destination-card" data-category="history">
+            <img src="Lahore.webp" alt="Lahore">
+            <h3>Lahore</h3>
+            <p>Explore history, culture and delicious food.</p>
+            <button onclick="showDestinationDetails('lahore')">View Details</button>
+        </div>
+
+        <div class="destination-card" data-category="mountains">
+            <img src="Swat.jpg" alt="Swat ">
+            <h3>Swat </h3>
+            <p>Green valleys and beautiful rivers.</p>
+            <button onclick="showDestinationDetails('swat')">View Details</button>
+        </div>
+
+        <div class="destination-card" data-category="city">
+            <img src="Islamabad.jpg" alt="Islamabad">
+            <h3>Islamabad</h3>
+            <p>A beautiful city with parks and landmarks.</p>
+            <button onclick="showDestinationDetails('islamabad')">View Details</button>
+        </div>
+
+        <div class="destination-card" data-category="history">
+            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=700" alt="Multan">
+            <h3>Multan</h3>
+            <p>Discover traditional culture and historic places.</p>
+            <button onclick="showDestinationDetails('multan')">View Details</button>
+        </div>
+
+    </div>
+
+    <p id="noResults" hidden>No destinations found.</p>
+
+</section>
+
+<section class="section" id="tips">
+
+    <h2>Travel Tips</h2>
+
+    <div class="tips-grid">
+
+        <div class="tip-card">
+            <h3>Pack Wisely</h3>
+            <p>Carry comfortable clothes and necessary items.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>Plan Ahead</h3>
+            <p>Check weather and accommodation before travelling.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>Stay Safe</h3>
+            <p>Keep emergency contacts and protect your belongings.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="enquiry">
+
+    <h2>Contact / Enquiry Form</h2>
+
+    <form class="form-card" onsubmit="return validateEnquiryForm()">
+
+        <label>Name:</label>
+        <input type="text" id="enquiryName" required>
+
+        <label>Email:</label>
+        <input type="email" id="enquiryEmail" required>
+
+        <label>Message:</label>
+        <textarea id="enquiryMessage" required></textarea>
+
+        <button type="submit">Send Enquiry</button>
+
+        <p id="enquiryMessageResult" class="success-message"></p>
+
+    </form>
+
+</section>
+
+<section class="section" id="booking">
+
+    <h2>Travel Booking Request</h2>
+
+    <form class="form-card" onsubmit="return validateBookingForm()">
+
+        <label>Name:</label>
+        <input type="text" id="bookingName" required>
+
+        <label>Email:</label>
+        <input type="email" id="bookingEmail" required>
+
+        <label>Destination:</label>
+
+        <select id="bookingDestination" required>
+            <option value="">Select Destination</option>
+            <option value="Hunza Valley">Hunza Valley</option>
+            <option value="Skardu">Skardu</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Swat">Swat </option>
+            <option value="Islamabad">Islamabad</option>
+            <option value="Multan">Multan</option>
+        </select>
+
+        <label>Travel Date:</label>
+        <input type="date" id="travelDate" required>
+
+        <label>Number of Travellers:</label>
+        <input type="number" id="travellers" min="1" required>
+
+        <button type="submit">Submit Booking</button>
+
+        <p id="bookingMessage" class="success-message"></p>
+
+    </form>
+
+</section>
+
+<section class="section" id="stay">
+
+    <h2>Accommodation and Food Booking</h2>
+
+    <form class="form-card" onsubmit="return validateStayAndFoodForm()">
+
+        <label>Name:</label>
+        <input type="text" id="stayName" required>
+
+        <label>Email:</label>
+        <input type="email" id="stayEmail" required>
+
+        <label>Destination:</label>
+
+        <select id="stayDestination" required>
+            <option value="">Select Destination</option>
+            <option>Hunza Valley</option>
+            <option>Skardu</option>
+            <option>Lahore</option>
+            <option>Swat</option>
+            <option>Islamabad</option>
+            <option>Multan</option>
+        </select>
+
+        <label>Accommodation Type:</label>
+
+        <select id="accommodation" required>
+            <option value="">Select Accommodation</option>
+            <option>Budget Hotel</option>
+            <option>Standard Hotel</option>
+            <option>Luxury Hotel</option>
+            <option>Guest House</option>
+        </select>
+
+        <label>Check-in Date:</label>
+        <input type="date" id="checkIn" required>
+
+        <label>Check-out Date:</label>
+        <input type="date" id="checkOut" required>
+
+        <label>Number of Guests:</label>
+        <input type="number" id="guests" min="1" required>
+
+        <label>Food Preference:</label>
+
+        <select id="foodPreference" required>
+            <option value="">Select Food</option>
+            <option>Local Food</option>
+            <option>Vegetarian</option>
+            <option>Both</option>
+            <option>No Meal Required</option>
+        </select>
+
+        <button type="submit">Submit Request</button>
+
+        <p id="stayMessage" class="success-message"></p>
+
+    </form>
+
+</section>
+
+<footer>
+    <p>© 2026 Wander Pakistan | Tourism Website</p>
+    <p><a href="about.html">About Our Team</a></p>
+</footer>
+
+</body>
+</html>
+

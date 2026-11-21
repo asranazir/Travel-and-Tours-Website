@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Details - Wander Pakistan</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <style>
+        .details {
+            max-width: 950px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .details h1 {
+            color: #174b3d;
+            margin-bottom: 15px;
+        }
+
+        .details h2 {
+            color: #247653;
+            margin-bottom: 12px;
+        }
+
+        .details h3 {
+            color: #174b3d;
+            margin-top: 15px;
+        }
+
+        .details img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .detail-box {
+            background: #f2f8f4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .detail-box ul,
+        .detail-box ol {
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .detail-box li {
+            margin: 7px 0;
+        }
+
+        .details p {
+            margin: 10px 0;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <nav class="navbar">
+        <h2>Wander Pakistan</h2>
+        <a class="back-link" href="index.html#destinations">
+            Back to Destinations
+        </a>
+    </nav>
+</header>
+
+<main class="details">
+    <h1 id="destinationName">Destination</h1>
+
+    <img id="destinationImage" src="" alt="Destination Image">
+
+    <p id="description"></p>
+
+    <!-- COMPLETE PRICE BREAKDOWN -->
+    <div class="detail-box">
+        <h2>Complete Price Breakdown</h2>
+
+        <h3>1. Accommodation Prices</h3>
+        <ul id="hotelPrices"></ul>
+
+        <h3>2. Food and Meal Prices</h3>
+        <ul id="foodPrices"></ul>
+
+        <h3>3. Transport Prices</h3>
+        <ul id="transportPrices"></ul>
+
+        <h3>4. Activities and Tours Prices</h3>
+        <ul id="activityPrices"></ul>
+
+        <h3>5. Entry Tickets</h3>
+        <ul id="ticketPrices"></ul>
+
+        <h3>6. Tour Guide Charges</h3>
+        <ul id="guidePrices"></ul>
+
+        <h3>7. Package Estimates</h3>
+        <ul id="prices"></ul>
+
+        <p><b>Note:</b> All prices are estimated sample prices in PKR.</p>
+    </div>
+
+    <div class="detail-box">
+        <h2>Package Includes</h2>
+        <ul id="includes"></ul>
+    </div>
+
+    <div class="detail-box">
+        <h2>Package Excludes</h2>
+        <ul id="excludes"></ul>
+    </div>
+
+    <div class="detail-box">
+        <h2>Tours and Activities</h2>
+        <ul id="activities"></ul>
+    </div>
+
+    <div class="detail-box">
+        <h2>Suggested Itinerary</h2>
+        <ol id="itinerary"></ol>
+    </div>
+
+    <div class="detail-box">
+        <h2>Stay and Travel Details</h2>
+
+        <p><b>Duration:</b> <span id="duration"></span></p>
+
+        <p><b>Hotel:</b> <span id="hotel"></span></p>
+
+        <p><b>Food:</b> <span id="food"></span></p>
+
+        <p><b>Transport:</b> <span id="transport"></span></p>
+    </div>
+
+    <button id="bookPackageButton">
+        Book This Package
+    </button>
+
+</main>
+<footer>
+    <p>© 2026 Wander Pakistan | Tourism Website</p>
+</footer>
+
+</body>
+</html>
